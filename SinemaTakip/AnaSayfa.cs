@@ -183,8 +183,8 @@ namespace SinemaTakip
             comboFilmSeansı.Text = "";
             comboSalonAdi.Text = "";
             comboFilmTarihi.Text = "";
-            foreach(Control item in groupBox1.Controls) if (item is TextBox)  item.Text = "";
-             
+            foreach (Control item in groupBox1.Controls) if (item is TextBox) item.Text = "";
+
             FilmAfisiGoster();
             YenidenRenklendir();
             Combo_Dolu_Koltuklar();
@@ -192,7 +192,26 @@ namespace SinemaTakip
         SinemaTableAdapters.SatisBilgileriTableAdapter satis = new SinemaTableAdapters.SatisBilgileriTableAdapter();
         private void btnBiletIptal_Click(object sender, EventArgs e)
         {
+            if (comboKoltukIptal.Text != "")
+            {
+                try
+                {
+                    satis.SatisIptal(comboFilmAdi.Text, comboSalonAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, comboKoltukIptal.Text);
+                    YenidenRenklendir();
+                    VeriTabani_Dolu_Koltuklar();
+                    Combo_Dolu_Koltuklar();
 
+                }
+                catch (Exception hata)
+                {
+                    MessageBox.Show("Hata Oluştu"+hata.Message, "Uyarı");
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Koltuk Seçimi Yapmadınız", "Uyarı");
+            }
         }
 
         private void btnBiletSat_Click(object sender, EventArgs e)
@@ -212,7 +231,7 @@ namespace SinemaTakip
                 {
                     MessageBox.Show("Hata Oluştu!!!" + hata.Message, "Uyarı");
                 }
-            else 
+            else
             {
                 MessageBox.Show("Koltuk Seçimi Yapmadınız.", "Uyarı");
 
@@ -251,7 +270,7 @@ namespace SinemaTakip
             comboFilmSeansı.Text = "";
             comboFilmSeansı.Items.Clear();
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from Seans_Bilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.SelectedItem + "'and tarih='"+comboFilmTarihi.SelectedItem+"'", baglanti);
+            SqlCommand komut = new SqlCommand("select *from Seans_Bilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.SelectedItem + "'and tarih='" + comboFilmTarihi.SelectedItem + "'", baglanti);
             SqlDataReader reader = komut.ExecuteReader();
             while (reader.Read())
             {
