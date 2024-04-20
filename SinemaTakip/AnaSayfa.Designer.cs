@@ -191,6 +191,7 @@
             this.comboSalonAdi.Name = "comboSalonAdi";
             this.comboSalonAdi.Size = new System.Drawing.Size(121, 21);
             this.comboSalonAdi.TabIndex = 10;
+            this.comboSalonAdi.SelectedIndexChanged += new System.EventHandler(this.comboSalonAdi_SelectedIndexChanged);
             // 
             // comboFilmTarihi
             // 
