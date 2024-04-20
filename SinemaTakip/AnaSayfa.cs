@@ -195,12 +195,14 @@ namespace SinemaTakip
                 try
                 {
                     satis.Satis_Yap(txtKoltukNo.Text, comboSalonAdi.Text, comboFilmAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, txtAd.Text, txtSoyad.Text, comboUcret.Text, DateTime.Now.ToShortDateString());
+                    MessageBox.Show("Satış Yapıldı.");
+
                 }
                 catch (Exception hata)
                 {
                     MessageBox.Show("Hata Oluştu!!!" + hata.Message, "Uyarı");
                 }
-            else
+            else 
             {
                 MessageBox.Show("Koltuk Seçimi Yapmadınız.", "Uyarı");
 
