@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Enes\\Documents\\GitHub\\Sinema_Bilet_Otomasyon\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A009BE0-8DF8-4BC1-A554-BBBC7D1B6078}|SinemaTakip\\SinemaTakip.csproj|c:\\users\\enes\\documents\\github\\sinema_bilet_otomasyon\\sinematakip\\anasayfa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5A009BE0-8DF8-4BC1-A554-BBBC7D1B6078}|SinemaTakip\\SinemaTakip.csproj|solutionrelative:sinematakip\\anasayfa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A009BE0-8DF8-4BC1-A554-BBBC7D1B6078}|SinemaTakip\\SinemaTakip.csproj|c:\\users\\enes\\documents\\github\\sinema_bilet_otomasyon\\sinematakip\\sinema.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{5A009BE0-8DF8-4BC1-A554-BBBC7D1B6078}|SinemaTakip\\SinemaTakip.csproj|solutionrelative:sinematakip\\sinema.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AnaSayfa.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Enes\\Documents\\GitHub\\Sinema_Bilet_Otomasyon\\SinemaTakip\\AnaSayfa.cs",
+              "RelativeDocumentMoniker": "SinemaTakip\\AnaSayfa.cs",
+              "ToolTip": "C:\\Users\\Enes\\Documents\\GitHub\\Sinema_Bilet_Otomasyon\\SinemaTakip\\AnaSayfa.cs [Design]",
+              "RelativeToolTip": "SinemaTakip\\AnaSayfa.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T20:56:30.796Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sinema.xsd",
+              "DocumentMoniker": "C:\\Users\\Enes\\Documents\\GitHub\\Sinema_Bilet_Otomasyon\\SinemaTakip\\Sinema.xsd",
+              "RelativeDocumentMoniker": "SinemaTakip\\Sinema.xsd",
+              "ToolTip": "C:\\Users\\Enes\\Documents\\GitHub\\Sinema_Bilet_Otomasyon\\SinemaTakip\\Sinema.xsd",
+              "RelativeToolTip": "SinemaTakip\\Sinema.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2024-04-20T20:56:01.465Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

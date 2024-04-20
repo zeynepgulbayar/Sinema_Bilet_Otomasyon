@@ -103,7 +103,7 @@ namespace SinemaTakip
         private void VeriTabani_Dolu_Koltuklar()
         {
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from Satis_Bilgileri where FilmAdi='"+comboFilmAdi.SelectedItem+"' and SalonAdi='"+comboSalonAdi.Text+"' and tarih='"+comboFilmTarihi.SelectedItem+"' and saat='"+comboFilmSeansı.SelectedItem+"'",baglanti);
+            SqlCommand komut = new SqlCommand("select *from Satis_Bilgileri where FilmAdi='"+comboFilmAdi.SelectedItem+"' and SalonAdi='"+comboSalonAdi.Text+"' and tarih='"+comboFilmTarihi.Text+"' and saat='"+comboFilmSeansı.SelectedItem+"'",baglanti);
             SqlDataReader read = komut.ExecuteReader();
             while (read.Read()) {
 
@@ -190,7 +190,7 @@ namespace SinemaTakip
             if (txtKoltukNo.Text!="")
             try
             {
-                satis.Satis_Yap(txtKoltukNo.Text, comboSalonAdi.Text, comboFilmAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, txtAd.Text, txtSoyad.Text, comboUcret.Text, DateTime.Now.ToString());
+                satis.Satis_Yap(txtKoltukNo.Text, comboSalonAdi.Text, comboFilmAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, txtAd.Text, txtSoyad.Text, comboUcret.Text, DateTime.Now.ToShortDateString());
             }
             catch (Exception hata)
             {

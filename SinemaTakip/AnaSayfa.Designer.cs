@@ -198,6 +198,7 @@
             this.comboFilmTarihi.Location = new System.Drawing.Point(77, 105);
             this.comboFilmTarihi.Name = "comboFilmTarihi";
             this.comboFilmTarihi.Size = new System.Drawing.Size(121, 21);
+            this.comboFilmTarihi.Sorted = true;
             this.comboFilmTarihi.TabIndex = 11;
             // 
             // comboFilmSeansı
