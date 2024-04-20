@@ -173,12 +173,18 @@ namespace SinemaTakip
 
         private void AnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void comboFilmAdi_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            comboFilmSeansı.Items.Clear();
+            comboFilmTarihi.Items.Clear();
+            comboFilmSeansı.Text = "";
+            comboSalonAdi.Text = "";
+            comboFilmTarihi.Text = "";
+            foreach(Control item in groupBox1.Controls) if (item is TextBox)  item.Text = "";
+             
             FilmAfisiGoster();
             YenidenRenklendir();
             Combo_Dolu_Koltuklar();
@@ -195,6 +201,10 @@ namespace SinemaTakip
                 try
                 {
                     satis.Satis_Yap(txtKoltukNo.Text, comboSalonAdi.Text, comboFilmAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, txtAd.Text, txtSoyad.Text, comboUcret.Text, DateTime.Now.ToShortDateString());
+                    foreach (Control item in groupBox1.Controls) if (item is TextBox) item.Text = "";
+                    YenidenRenklendir();
+                    VeriTabani_Dolu_Koltuklar();
+                    Combo_Dolu_Koltuklar();
                     MessageBox.Show("Satış Yapıldı.");
 
                 }
