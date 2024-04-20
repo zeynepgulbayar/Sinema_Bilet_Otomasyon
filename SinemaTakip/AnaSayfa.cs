@@ -234,5 +234,42 @@ namespace SinemaTakip
         {
             Film_Tarihi_Getir();
         }
+        private void FilmSeansi_Getir()
+        {
+            comboFilmSeansı.Text = "";
+            comboFilmSeansı.Items.Clear();
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("select *from Seans_Bilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.SelectedItem + "'and tarih='"+comboFilmTarihi.SelectedItem+"'", baglanti);
+            SqlDataReader reader = komut.ExecuteReader();
+            while (reader.Read())
+            {
+                if (DateTime.Parse(reader["tarih"].ToString()) == DateTime.Parse(DateTime.Now.ToShortDateString()))
+                {
+                    if (DateTime.Parse(reader["seans"].ToString()) > DateTime.Parse(DateTime.Now.ToShortTimeString()))
+
+                    {
+                        comboFilmSeansı.Items.Add(reader["seans"].ToString());
+
+                    }
+
+
+
+
+                }
+                else if (DateTime.Parse(reader["tarih"].ToString()) > DateTime.Parse(DateTime.Now.ToShortDateString()))
+                {
+
+                    comboFilmSeansı.Items.Add(reader["seans"].ToString());
+
+
+
+                }
+            }
+            baglanti.Close();
+        }
+        private void comboFilmTarihi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilmSeansi_Getir();
+        }
     }
 }

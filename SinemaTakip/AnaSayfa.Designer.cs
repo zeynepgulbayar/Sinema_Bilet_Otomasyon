@@ -201,6 +201,7 @@
             this.comboFilmTarihi.Size = new System.Drawing.Size(121, 21);
             this.comboFilmTarihi.Sorted = true;
             this.comboFilmTarihi.TabIndex = 11;
+            this.comboFilmTarihi.SelectedIndexChanged += new System.EventHandler(this.comboFilmTarihi_SelectedIndexChanged);
             // 
             // comboFilmSeansı
             // 
