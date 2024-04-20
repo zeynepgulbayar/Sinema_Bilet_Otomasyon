@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SinemaTakip
@@ -16,7 +9,7 @@ namespace SinemaTakip
         {
             InitializeComponent();
         }
-        SinemaTableAdapters.Film_BilgileriTableAdapter film=new SinemaTableAdapters.Film_BilgileriTableAdapter();
+        SinemaTableAdapters.Film_BilgileriTableAdapter film = new SinemaTableAdapters.Film_BilgileriTableAdapter();
         private void FilmEkle_FormClosing(object sender, FormClosingEventArgs e)
         {
             AnaSayfa Return = new AnaSayfa();
@@ -33,19 +26,20 @@ namespace SinemaTakip
         {
             try
             {
-            film.FilmEkleme(txtFilmAdi.Text,txtYonetmen.Text, comboFilmTuru.Text,txtSure.Text,dateTimePicker1.Text,txtYapimYili.Text,pictureBox1.ImageLocation);
+                film.FilmEkleme(txtFilmAdi.Text, txtYonetmen.Text, comboFilmTuru.Text, txtSure.Text, dateTimePicker1.Text, txtYapimYili.Text, pictureBox1.ImageLocation);
                 MessageBox.Show("Film Kaydedildi.");
             }
-            catch(Exception) {
+            catch (Exception)
+            {
 
 
-                MessageBox.Show("Bu film daha önce kaydedildi.","Uyarı");
+                MessageBox.Show("Bu film daha önce kaydedildi.", "Uyarı");
             }
 
 
 
 
-            foreach(Control item in Controls) if( item is TextBox)  item.Text="";
+            foreach (Control item in Controls) if (item is TextBox) item.Text = "";
             comboFilmTuru.SelectedIndex = -1;
 
         }

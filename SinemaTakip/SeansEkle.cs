@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SinemaTakip
@@ -34,12 +27,12 @@ namespace SinemaTakip
 
         }
 
-        private void FilmVeSalonGoster(ComboBox combo,string sql,string sql2)
+        private void FilmVeSalonGoster(ComboBox combo, string sql, string sql2)
         {
             baglanti.Open();
-            SqlCommand komut =new SqlCommand(sql, baglanti);
+            SqlCommand komut = new SqlCommand(sql, baglanti);
             SqlDataReader reader = komut.ExecuteReader();
-            while (reader.Read()==true)
+            while (reader.Read() == true)
             {
                 combo.Items.Add(reader[sql2].ToString());
             }
@@ -51,11 +44,11 @@ namespace SinemaTakip
             FilmVeSalonGoster(comboFilmAdi, "select *from Film_Bilgileri", "FilmAdi");
             FilmVeSalonGoster(comboSalon, "select *from Salon_Bilgileri", "SalonAdi");
         }
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-             RadioButtonSeciliyse();
+            RadioButtonSeciliyse();
             if (seans != "")
             {
 
@@ -74,7 +67,7 @@ namespace SinemaTakip
 
         private void SeansEkle_FormClosing(object sender, FormClosingEventArgs e)
         {
-            AnaSayfa Return=new AnaSayfa();
+            AnaSayfa Return = new AnaSayfa();
 
             Return.Show();
 
@@ -88,7 +81,7 @@ namespace SinemaTakip
             {
                 item3.Enabled = true;
             }
-            DateTime bugun=DateTime.Parse(DateTime.Now.ToShortDateString());
+            DateTime bugun = DateTime.Parse(DateTime.Now.ToShortDateString());
             DateTime yeni = DateTime.Parse(dateTimePicker1.Text);
             if (bugun == yeni)
             {
@@ -101,13 +94,14 @@ namespace SinemaTakip
                 }
                 Tarihi_Karsilastir();
             }
-            else if( yeni > bugun ) {
+            else if (yeni > bugun)
+            {
                 Tarihi_Karsilastir();
             }
-            else if (yeni<bugun)
+            else if (yeni < bugun)
             {
                 MessageBox.Show("Geriye dönük işlem yapılamaz.", "Uyarı");
-                dateTimePicker1.Text= DateTime.Now.ToShortDateString();
+                dateTimePicker1.Text = DateTime.Now.ToShortDateString();
             }
         }
 

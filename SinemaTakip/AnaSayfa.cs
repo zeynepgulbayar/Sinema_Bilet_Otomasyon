@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SinemaTakip
@@ -18,11 +11,11 @@ namespace SinemaTakip
         {
             InitializeComponent();
         }
-        SqlConnection baglanti=new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Sinema_bileti;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Sinema_bileti;Integrated Security=True");
         private void btnSalonEkle_Click(object sender, EventArgs e)
         {
-           SalonEkle salonEkleform = new SalonEkle();
-           
+            SalonEkle salonEkleform = new SalonEkle();
+
             salonEkleform.Show();
             this.Hide();
         }
@@ -30,7 +23,7 @@ namespace SinemaTakip
         private void btnFilmEkle_Click(object sender, EventArgs e)
         {
             FilmEkle filmEkleForm = new FilmEkle();
-            filmEkleForm.Show();           
+            filmEkleForm.Show();
             this.Hide();
 
         }
@@ -38,8 +31,8 @@ namespace SinemaTakip
         private void btnSeansListele_Click(object sender, EventArgs e)
         {
             SeansListe SeansListeform = new SeansListe();
-           
-            SeansListeform.Show();  
+
+            SeansListeform.Show();
             this.Hide();
         }
         private void btnSeansEkle_Click(object sender, EventArgs e)
@@ -57,8 +50,9 @@ namespace SinemaTakip
         {
             baglanti.Open();
             SqlCommand komut = new SqlCommand(sql1, baglanti);
-            SqlDataReader read=komut.ExecuteReader();
-            while (read.Read()) { 
+            SqlDataReader read = komut.ExecuteReader();
+            while (read.Read())
+            {
                 combo.Items.Add(read[sql2].ToString());
             }
             baglanti.Close();
@@ -66,9 +60,10 @@ namespace SinemaTakip
         private void FilmAfisiGoster()
         {
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from Film_Bilgileri where FilmAdi='"+comboFilmAdi.SelectedItem+"'", baglanti);
+            SqlCommand komut = new SqlCommand("select *from Film_Bilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "'", baglanti);
             SqlDataReader read = komut.ExecuteReader();
-            while (read.Read()) {
+            while (read.Read())
+            {
 
                 pictureBox1.ImageLocation = read["resim"].ToString();
             }
@@ -83,7 +78,7 @@ namespace SinemaTakip
             {
                 if (item is Button)
                 {
-                    if (item.BackColor==Color.Red)
+                    if (item.BackColor == Color.Red)
                     {
                         comboKoltukIptal.Items.Add(item.Text);
                     }
@@ -103,27 +98,29 @@ namespace SinemaTakip
         private void VeriTabani_Dolu_Koltuklar()
         {
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from Satis_Bilgileri where FilmAdi='"+comboFilmAdi.SelectedItem+"' and SalonAdi='"+comboSalonAdi.Text+"' and tarih='"+comboFilmTarihi.Text+"' and saat='"+comboFilmSeansı.SelectedItem+"'",baglanti);
+            SqlCommand komut = new SqlCommand("select *from Satis_Bilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.Text + "' and tarih='" + comboFilmTarihi.Text + "' and saat='" + comboFilmSeansı.SelectedItem + "'", baglanti);
             SqlDataReader read = komut.ExecuteReader();
-            while (read.Read()) {
+            while (read.Read())
+            {
 
                 foreach (Control item in panel1.Controls)
                 {
                     if (item is Button)
                     {
-                        if (read["koltukno"].ToString()==item.Text)
+                        if (read["koltukno"].ToString() == item.Text)
                         {
-                        item.BackColor = Color.Red;
+                            item.BackColor = Color.Red;
 
                         }
                     }
                 }
-            } baglanti.Close();
+            }
+            baglanti.Close();
         }
         private void AnaSayfa_Load(object sender, EventArgs e)
         {
             BosKoltuklar();
-            FilmveSalonGetir(comboFilmAdi,"select *from Film_Bilgileri","FilmAdi" );
+            FilmveSalonGetir(comboFilmAdi, "select *from Film_Bilgileri", "FilmAdi");
             FilmveSalonGetir(comboSalonAdi, "select *from Salon_Bilgileri", "SalonAdi");
 
         }
@@ -155,7 +152,7 @@ namespace SinemaTakip
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            Button b=(Button)sender;
+            Button b = (Button)sender;
             if (b.BackColor == Color.White)
             {
                 txtKoltukNo.Text = b.Text;
@@ -164,7 +161,7 @@ namespace SinemaTakip
 
         private void btnSatis_Click(object sender, EventArgs e)
         {
-            SatisListe SatisListeForm= new SatisListe();
+            SatisListe SatisListeForm = new SatisListe();
             SatisListeForm.Show();
             this.Hide();
         }
@@ -176,7 +173,7 @@ namespace SinemaTakip
 
         private void AnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
         {
-           
+
         }
 
         private void comboFilmAdi_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,7 +183,7 @@ namespace SinemaTakip
             YenidenRenklendir();
             Combo_Dolu_Koltuklar();
         }
-        SinemaTableAdapters.SatisBilgileriTableAdapter satis=new SinemaTableAdapters.SatisBilgileriTableAdapter();
+        SinemaTableAdapters.SatisBilgileriTableAdapter satis = new SinemaTableAdapters.SatisBilgileriTableAdapter();
         private void btnBiletIptal_Click(object sender, EventArgs e)
         {
 
@@ -194,15 +191,15 @@ namespace SinemaTakip
 
         private void btnBiletSat_Click(object sender, EventArgs e)
         {
-            if (txtKoltukNo.Text!="")
-            try
-            {
-                satis.Satis_Yap(txtKoltukNo.Text, comboSalonAdi.Text, comboFilmAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, txtAd.Text, txtSoyad.Text, comboUcret.Text, DateTime.Now.ToShortDateString());
-            }
-            catch (Exception hata)
-            {
+            if (txtKoltukNo.Text != "")
+                try
+                {
+                    satis.Satis_Yap(txtKoltukNo.Text, comboSalonAdi.Text, comboFilmAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, txtAd.Text, txtSoyad.Text, comboUcret.Text, DateTime.Now.ToShortDateString());
+                }
+                catch (Exception hata)
+                {
                     MessageBox.Show("Hata Oluştu!!!" + hata.Message, "Uyarı");
-            }
+                }
             else
             {
                 MessageBox.Show("Koltuk Seçimi Yapmadınız.", "Uyarı");
@@ -220,9 +217,18 @@ namespace SinemaTakip
             SqlDataReader reader = komut.ExecuteReader();
             while (reader.Read())
             {
-                comboFilmTarihi.Items.Add(reader["tarih"].ToString());
+                if (DateTime.Parse(reader["tarih"].ToString()) >= DateTime.Parse(DateTime.Now.ToShortDateString()))
+                {
+                    if (!comboFilmTarihi.Items.Contains(reader["tarih"].ToString()))
+                    {
+                        comboFilmTarihi.Items.Add(reader["tarih"].ToString());
 
-            } baglanti.Close();
+                    }
+
+                }
+
+            }
+            baglanti.Close();
         }
         private void comboSalonAdi_SelectedIndexChanged(object sender, EventArgs e)
         {

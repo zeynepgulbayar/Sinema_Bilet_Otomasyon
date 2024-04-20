@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SinemaTakip
@@ -18,7 +12,7 @@ namespace SinemaTakip
             InitializeComponent();
         }
 
-        SinemaTableAdapters.SatisBilgileriTableAdapter SatisListesi=new SinemaTableAdapters.SatisBilgileriTableAdapter();
+        SinemaTableAdapters.SatisBilgileriTableAdapter SatisListesi = new SinemaTableAdapters.SatisBilgileriTableAdapter();
 
         private void SatisListe_FormClosing_1(object sender, FormClosingEventArgs e)
         {

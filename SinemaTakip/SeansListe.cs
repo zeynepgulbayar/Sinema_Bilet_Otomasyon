@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SinemaTakip
@@ -21,9 +14,9 @@ namespace SinemaTakip
         SqlConnection baglanti = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Sinema_bileti;Integrated Security=True");
         DataTable tablo = new DataTable();
         private void seansListesi(string sql)
-        {        
+        {
             baglanti.Open();
-            SqlDataAdapter adtr=new SqlDataAdapter(sql,baglanti);
+            SqlDataAdapter adtr = new SqlDataAdapter(sql, baglanti);
             adtr.Fill(tablo);
             dataGridView1.DataSource = tablo;
             baglanti.Close();
