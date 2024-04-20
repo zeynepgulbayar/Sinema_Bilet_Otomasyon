@@ -1355,7 +1355,7 @@ namespace SinemaTakip {
             
             private global::System.Data.DataColumn columnUcret;
             
-            private global::System.Data.DataColumn columnTarih2;
+            private global::System.Data.DataColumn columnSatisTarihi;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1464,9 +1464,9 @@ namespace SinemaTakip {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Tarih2Column {
+            public global::System.Data.DataColumn SatisTarihiColumn {
                 get {
-                    return this.columnTarih2;
+                    return this.columnSatisTarihi;
                 }
             }
             
@@ -1507,7 +1507,7 @@ namespace SinemaTakip {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SatisBilgileriRow AddSatisBilgileriRow(string KoltukNo, string SalonAdi, string FilmAdi, string Tarih, string Saat, string Ad, string Soyad, string Ucret, string Tarih2) {
+            public SatisBilgileriRow AddSatisBilgileriRow(string KoltukNo, string SalonAdi, string FilmAdi, string Tarih, string Saat, string Ad, string Soyad, string Ucret, string SatisTarihi) {
                 SatisBilgileriRow rowSatisBilgileriRow = ((SatisBilgileriRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1519,7 +1519,7 @@ namespace SinemaTakip {
                         Ad,
                         Soyad,
                         Ucret,
-                        Tarih2};
+                        SatisTarihi};
                 rowSatisBilgileriRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSatisBilgileriRow);
                 return rowSatisBilgileriRow;
@@ -1551,7 +1551,7 @@ namespace SinemaTakip {
                 this.columnAd = base.Columns["Ad"];
                 this.columnSoyad = base.Columns["Soyad"];
                 this.columnUcret = base.Columns["Ucret"];
-                this.columnTarih2 = base.Columns["Tarih2"];
+                this.columnSatisTarihi = base.Columns["SatisTarihi"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1575,8 +1575,8 @@ namespace SinemaTakip {
                 base.Columns.Add(this.columnSoyad);
                 this.columnUcret = new global::System.Data.DataColumn("Ucret", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUcret);
-                this.columnTarih2 = new global::System.Data.DataColumn("Tarih2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTarih2);
+                this.columnSatisTarihi = new global::System.Data.DataColumn("SatisTarihi", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSatisTarihi);
                 this.columnSatisId.AutoIncrement = true;
                 this.columnSatisId.AutoIncrementSeed = -1;
                 this.columnSatisId.AutoIncrementStep = -1;
@@ -1590,7 +1590,7 @@ namespace SinemaTakip {
                 this.columnAd.MaxLength = 50;
                 this.columnSoyad.MaxLength = 50;
                 this.columnUcret.MaxLength = 50;
-                this.columnTarih2.MaxLength = 50;
+                this.columnSatisTarihi.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2269,17 +2269,17 @@ namespace SinemaTakip {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Tarih2 {
+            public string SatisTarihi {
                 get {
                     try {
-                        return ((string)(this[this.tableSatisBilgileri.Tarih2Column]));
+                        return ((string)(this[this.tableSatisBilgileri.SatisTarihiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Tarih2\' in table \'SatisBilgileri\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SatisTarihi\' in table \'SatisBilgileri\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSatisBilgileri.Tarih2Column] = value;
+                    this[this.tableSatisBilgileri.SatisTarihiColumn] = value;
                 }
             }
             
@@ -2381,14 +2381,14 @@ namespace SinemaTakip {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTarih2Null() {
-                return this.IsNull(this.tableSatisBilgileri.Tarih2Column);
+            public bool IsSatisTarihiNull() {
+                return this.IsNull(this.tableSatisBilgileri.SatisTarihiColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTarih2Null() {
-                this[this.tableSatisBilgileri.Tarih2Column] = global::System.Convert.DBNull;
+            public void SetSatisTarihiNull() {
+                this[this.tableSatisBilgileri.SatisTarihiColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3932,7 +3932,7 @@ SELECT FilmId, FilmAdi, Yönetmen, FilmTuru, FimSuresi, tarih, YapimYili, Resim 
             tableMapping.ColumnMappings.Add("Ad", "Ad");
             tableMapping.ColumnMappings.Add("Soyad", "Soyad");
             tableMapping.ColumnMappings.Add("Ucret", "Ucret");
-            tableMapping.ColumnMappings.Add("Tarih2", "Tarih2");
+            tableMapping.ColumnMappings.Add("Tarih2", "SatisTarihi");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -3969,8 +3969,8 @@ SELECT FilmId, FilmAdi, Yönetmen, FilmTuru, FimSuresi, tarih, YapimYili, Resim 
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO [SatisBilgileri] ([KoltukNo], [SalonAdi], [FilmAdi], [Tarih], [Saat]," +
-                " [Ad], [Soyad], [Ucret], [Tarih2]) VALUES (@KoltukNo, @SalonAdi, @FilmAdi, @Tari" +
-                "h, @Saat, @Ad, @Soyad, @Ucret, @Tarih2)";
+                " [Ad], [Soyad], [Ucret], [SatisTarihi]) VALUES (@KoltukNo, @SalonAdi, @FilmAdi, " +
+                "@Tarih, @Saat, @Ad, @Soyad, @Ucret, @SatisTarihi)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KoltukNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "KoltukNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SalonAdi", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SalonAdi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3980,12 +3980,13 @@ SELECT FilmId, FilmAdi, Yönetmen, FilmTuru, FimSuresi, tarih, YapimYili, Resim 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ad", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Ad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Soyad", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Soyad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ucret", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Ucret", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tarih2", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Tarih2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SatisTarihi", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SatisTarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        SatisBilgileri.*\r\nFROM SatisBilgileri WHERE tarih2 like @tarih2;\r\n";
+            this._commandCollection[2].CommandText = "SELECT        SatisBilgileri.*\r\nFROM SatisBilgileri WHERE SatisTarihi like @Satis" +
+                "Tarihi;\r\n";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tarih2", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Tarih2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SatisTarihi", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SatisTarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4016,13 +4017,13 @@ SELECT FilmId, FilmAdi, Yönetmen, FilmTuru, FimSuresi, tarih, YapimYili, Resim 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int TariheGoreListele(Sinema.SatisBilgileriDataTable dataTable, string tarih2) {
+        public virtual int TariheGoreListele(Sinema.SatisBilgileriDataTable dataTable, string SatisTarihi) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((tarih2 == null)) {
+            if ((SatisTarihi == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(tarih2));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(SatisTarihi));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4035,13 +4036,13 @@ SELECT FilmId, FilmAdi, Yönetmen, FilmTuru, FimSuresi, tarih, YapimYili, Resim 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Sinema.SatisBilgileriDataTable TariheGoreListele2(string tarih2) {
+        public virtual Sinema.SatisBilgileriDataTable TariheGoreListele2(string SatisTarihi) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((tarih2 == null)) {
+            if ((SatisTarihi == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(tarih2));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(SatisTarihi));
             }
             Sinema.SatisBilgileriDataTable dataTable = new Sinema.SatisBilgileriDataTable();
             this.Adapter.Fill(dataTable);
@@ -4156,7 +4157,7 @@ SELECT FilmId, FilmAdi, Yönetmen, FilmTuru, FimSuresi, tarih, YapimYili, Resim 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int Satis_Yap(string KoltukNo, string SalonAdi, string FilmAdi, string Tarih, string Saat, string Ad, string Soyad, string Ucret, string Tarih2) {
+        public virtual int Satis_Yap(string KoltukNo, string SalonAdi, string FilmAdi, string Tarih, string Saat, string Ad, string Soyad, string Ucret, string SatisTarihi) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((KoltukNo == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -4206,11 +4207,11 @@ SELECT FilmId, FilmAdi, Yönetmen, FilmTuru, FimSuresi, tarih, YapimYili, Resim 
             else {
                 command.Parameters[7].Value = ((string)(Ucret));
             }
-            if ((Tarih2 == null)) {
+            if ((SatisTarihi == null)) {
                 command.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[8].Value = ((string)(Tarih2));
+                command.Parameters[8].Value = ((string)(SatisTarihi));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

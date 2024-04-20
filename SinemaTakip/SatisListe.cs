@@ -35,7 +35,7 @@ namespace SinemaTakip
                     connection.Open();
 
                     // SQL sorgunuzu burada oluşturun, DateTime değeriyle filtreleyin
-                    string query = "SELECT * FROM SatisBilgileri WHERE tarih2 = @filterDate";
+                    string query = "SELECT * FROM SatisBilgileri WHERE SatisTarihi = @filterDate";
 
                     // SqlCommand ve SqlDataAdapter oluşturun
                     using (SqlCommand command = new SqlCommand(query, connection))
