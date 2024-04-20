@@ -124,6 +124,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(316, 338);
             this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -210,6 +211,7 @@
             this.comboFilmSeansı.Name = "comboFilmSeansı";
             this.comboFilmSeansı.Size = new System.Drawing.Size(121, 21);
             this.comboFilmSeansı.TabIndex = 12;
+            this.comboFilmSeansı.SelectedIndexChanged += new System.EventHandler(this.comboFilmSeansı_SelectedIndexChanged);
             // 
             // comboUcret
             // 

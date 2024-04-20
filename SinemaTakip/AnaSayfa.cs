@@ -98,7 +98,7 @@ namespace SinemaTakip
         private void VeriTabani_Dolu_Koltuklar()
         {
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from Satis_Bilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.Text + "' and tarih='" + comboFilmTarihi.Text + "' and saat='" + comboFilmSeansı.SelectedItem + "'", baglanti);
+            SqlCommand komut = new SqlCommand("select *from SatisBilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.Text + "' and Tarih='" + comboFilmTarihi.Text + "' and saat='" + comboFilmSeansı.Text + "'", baglanti);
             SqlDataReader read = komut.ExecuteReader();
             while (read.Read())
             {
@@ -107,7 +107,7 @@ namespace SinemaTakip
                 {
                     if (item is Button)
                     {
-                        if (read["koltukno"].ToString() == item.Text)
+                        if (read["KoltukNo"].ToString() == item.Text)
                         {
                             item.BackColor = Color.Red;
 
@@ -270,6 +270,18 @@ namespace SinemaTakip
         private void comboFilmTarihi_SelectedIndexChanged(object sender, EventArgs e)
         {
             FilmSeansi_Getir();
+        }
+
+        private void comboFilmSeansı_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            YenidenRenklendir();
+            VeriTabani_Dolu_Koltuklar();
+            Combo_Dolu_Koltuklar();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
