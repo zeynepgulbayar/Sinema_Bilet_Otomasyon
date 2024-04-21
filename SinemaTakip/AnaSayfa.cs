@@ -98,7 +98,7 @@ namespace SinemaTakip
         private void VeriTabani_Dolu_Koltuklar()
         {
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from SatisBilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.Text + "' and Tarih='" + comboFilmTarihi.Text + "' and saat='" + comboFilmSeansı.Text + "'", baglanti);
+            SqlCommand komut = new SqlCommand("select *from SatisBilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.Text + "' and Tarih='" + comboFilmTarihi.Text + "' and saat='" + comboFilmSeansi.Text + "'", baglanti);
             SqlDataReader read = komut.ExecuteReader();
             while (read.Read())
             {
@@ -178,9 +178,9 @@ namespace SinemaTakip
 
         private void comboFilmAdi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboFilmSeansı.Items.Clear();
+            comboFilmSeansi.Items.Clear();
             comboFilmTarihi.Items.Clear();
-            comboFilmSeansı.Text = "";
+            comboFilmSeansi.Text = "";
             comboSalonAdi.Text = "";
             comboFilmTarihi.Text = "";
             foreach (Control item in groupBox1.Controls) if (item is TextBox) item.Text = "";
@@ -196,7 +196,7 @@ namespace SinemaTakip
             {
                 try
                 {
-                    satis.SatisIptal(comboFilmAdi.Text, comboSalonAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, comboKoltukIptal.Text);
+                    satis.SatisIptal(comboFilmAdi.Text, comboSalonAdi.Text, comboFilmTarihi.Text, comboFilmSeansi.Text, comboKoltukIptal.Text);
                     YenidenRenklendir();
                     VeriTabani_Dolu_Koltuklar();
                     Combo_Dolu_Koltuklar();
@@ -219,7 +219,7 @@ namespace SinemaTakip
             if (txtKoltukNo.Text != "")
                 try
                 {
-                    satis.Satis_Yap(txtKoltukNo.Text, comboSalonAdi.Text, comboFilmAdi.Text, comboFilmTarihi.Text, comboFilmSeansı.Text, txtAd.Text, txtSoyad.Text, comboUcret.Text, DateTime.Now.ToShortDateString());
+                    satis.Satis_Yap(txtKoltukNo.Text, comboSalonAdi.Text, comboFilmAdi.Text, comboFilmTarihi.Text, comboFilmSeansi.Text, txtAd.Text, txtSoyad.Text, comboUcret.Text, DateTime.Now.ToShortDateString());
                     foreach (Control item in groupBox1.Controls) if (item is TextBox) item.Text = "";
                     YenidenRenklendir();
                     VeriTabani_Dolu_Koltuklar();
@@ -240,9 +240,9 @@ namespace SinemaTakip
         private void Film_Tarihi_Getir()
         {
             comboFilmTarihi.Text = "";
-            comboFilmSeansı.Text = "";
+            comboFilmSeansi.Text = "";
             comboFilmTarihi.Items.Clear();
-            comboFilmSeansı.Items.Clear();
+            comboFilmSeansi.Items.Clear();
             baglanti.Open();
             SqlCommand komut = new SqlCommand("select *from Seans_Bilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.SelectedItem + "'", baglanti);
             SqlDataReader reader = komut.ExecuteReader();
@@ -267,8 +267,8 @@ namespace SinemaTakip
         }
         private void FilmSeansi_Getir()
         {
-            comboFilmSeansı.Text = "";
-            comboFilmSeansı.Items.Clear();
+            comboFilmSeansi.Text = "";
+            comboFilmSeansi.Items.Clear();
             baglanti.Open();
             SqlCommand komut = new SqlCommand("select *from Seans_Bilgileri where FilmAdi='" + comboFilmAdi.SelectedItem + "' and SalonAdi='" + comboSalonAdi.SelectedItem + "'and tarih='" + comboFilmTarihi.SelectedItem + "'", baglanti);
             SqlDataReader reader = komut.ExecuteReader();
@@ -279,7 +279,7 @@ namespace SinemaTakip
                     if (DateTime.Parse(reader["seans"].ToString()) > DateTime.Parse(DateTime.Now.ToShortTimeString()))
 
                     {
-                        comboFilmSeansı.Items.Add(reader["seans"].ToString());
+                        comboFilmSeansi.Items.Add(reader["seans"].ToString());
 
                     }
 
@@ -290,7 +290,7 @@ namespace SinemaTakip
                 else if (DateTime.Parse(reader["tarih"].ToString()) > DateTime.Parse(DateTime.Now.ToShortDateString()))
                 {
 
-                    comboFilmSeansı.Items.Add(reader["seans"].ToString());
+                    comboFilmSeansi.Items.Add(reader["seans"].ToString());
 
 
 

@@ -42,7 +42,7 @@
             this.comboFilmAdi = new System.Windows.Forms.ComboBox();
             this.comboSalonAdi = new System.Windows.Forms.ComboBox();
             this.comboFilmTarihi = new System.Windows.Forms.ComboBox();
-            this.comboFilmSeansı = new System.Windows.Forms.ComboBox();
+            this.comboFilmSeansi = new System.Windows.Forms.ComboBox();
             this.comboUcret = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBiletSat = new System.Windows.Forms.Button();
@@ -205,14 +205,14 @@
             this.comboFilmTarihi.TabIndex = 11;
             this.comboFilmTarihi.SelectedIndexChanged += new System.EventHandler(this.comboFilmTarihi_SelectedIndexChanged);
             // 
-            // comboFilmSeansı
+            // comboFilmSeansi
             // 
-            this.comboFilmSeansı.FormattingEnabled = true;
-            this.comboFilmSeansı.Location = new System.Drawing.Point(77, 144);
-            this.comboFilmSeansı.Name = "comboFilmSeansı";
-            this.comboFilmSeansı.Size = new System.Drawing.Size(121, 21);
-            this.comboFilmSeansı.TabIndex = 12;
-            this.comboFilmSeansı.SelectedIndexChanged += new System.EventHandler(this.comboFilmSeansı_SelectedIndexChanged);
+            this.comboFilmSeansi.FormattingEnabled = true;
+            this.comboFilmSeansi.Location = new System.Drawing.Point(77, 144);
+            this.comboFilmSeansi.Name = "comboFilmSeansi";
+            this.comboFilmSeansi.Size = new System.Drawing.Size(121, 21);
+            this.comboFilmSeansi.TabIndex = 12;
+            this.comboFilmSeansi.SelectedIndexChanged += new System.EventHandler(this.comboFilmSeansı_SelectedIndexChanged);
             // 
             // comboUcret
             // 
@@ -235,7 +235,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.comboFilmTarihi);
-            this.groupBox2.Controls.Add(this.comboFilmSeansı);
+            this.groupBox2.Controls.Add(this.comboFilmSeansi);
             this.groupBox2.Controls.Add(this.comboSalonAdi);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
@@ -451,7 +451,7 @@
         private System.Windows.Forms.ComboBox comboFilmAdi;
         private System.Windows.Forms.ComboBox comboSalonAdi;
         private System.Windows.Forms.ComboBox comboFilmTarihi;
-        private System.Windows.Forms.ComboBox comboFilmSeansı;
+        private System.Windows.Forms.ComboBox comboFilmSeansi;
         private System.Windows.Forms.ComboBox comboUcret;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBiletSat;
