@@ -21,6 +21,7 @@ namespace SinemaTakip
             dataGridView1.DataSource = tablo;
             baglanti.Close();
         }
+
         private void SeansListe_FormClosing(object sender, FormClosingEventArgs e)
         {
             AnaSayfa Return = new AnaSayfa();

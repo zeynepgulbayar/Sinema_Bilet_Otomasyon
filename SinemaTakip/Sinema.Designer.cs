@@ -3993,8 +3993,7 @@ SELECT FilmId, FilmAdi, Yönetmen, FilmTuru, FimSuresi, tarih, YapimYili, Resim 
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KoltukNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "KoltukNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        SatisBilgileri.*\r\nFROM SatisBilgileri WHERE SatisTarihi like @Satis" +
-                "Tarihi;\r\n";
+            this._commandCollection[3].CommandText = "\r\nSELECT * FROM SatisBilgileri WHERE\r\n( SatisTarihi) = @SatisTarihi\r\n";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SatisTarihi", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SatisTarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
